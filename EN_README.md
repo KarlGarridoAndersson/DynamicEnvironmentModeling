@@ -2,7 +2,7 @@
 
 ## General Information
 
-- **Author:** Karl Garrido-Andersson
+- **Author:** Karl Garrido Andersson
 - **Date:** September 6, 2026
 - **Subject:** A functional approach to quantifying the "health state" of a dynamic environment
 
