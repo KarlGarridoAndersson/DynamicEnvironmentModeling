@@ -2,7 +2,7 @@
 
 ## Informations générales
 
-- **Auteur :** Karl Garrido-Andersson
+- **Auteur :** Karl Garrido Andersson
 - **Date :** 6 septembre 2026
 - **Sujet :** Une approche fonctionnelle pour la quantification de l'« état de santé » d'un environnement dynamique
 
