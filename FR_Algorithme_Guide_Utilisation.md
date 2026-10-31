@@ -47,3 +47,33 @@ def health_operator(G_eff, weights):
         return 0.0
     w = w / norm
     return float(np.tanh(np.dot(w, G_eff)))
+```
+
+### 2.2 Point d'Entrée Principal d'Apprentissage
+La fonction `run_iterative_learning()` orchestre l'optimisation des paramètres $\Gamma = (\alpha, \beta, \delta, \gamma)$ en combinant une optimisation `L-BFGS-B` et une validation croisée à $K$ plis.
+
+```python
+def run_iterative_learning(D_tr, F_tr, R_tr, P_tr, G_tr,
+                           D_te, F_te, R_te, P_te, G_te,
+                           n_iter=10, n_splits=5, update_rate=0.5,
+                           verbose=True):
+    """
+    Exécute l'apprentissage itératif avec validation croisée (K-Fold).
+    Retourne l'historique des paramètres et des erreurs MAPE (train/test).
+    """
+```
+
+---
+
+## 3. Structure des Sections du Notebook
+
+| Section | Titre | Description |
+| :---: | :--- | :--- |
+| **1** | Imports & Configuration | Chargement des bibliothèques (`numpy`, `scipy`, `sklearn`), fixation du seed et définition des styles graphiques. |
+| **2** | Modèle Mathématique | Définition des équations de gravité $G$, résiduelle $G(t)$, opérateur de santé $\zeta$ et métrique MAPE. |
+| **3** | Base de Données & Clustering | Génération des 150 événements synthétiques et clustering K-Means ($K=3$) sur $(D, F, R, P)$. |
+| **4** | Apprentissage Itératif Global | Optimisation des paramètres globaux $(\alpha, \beta, \delta, \gamma)$ via validation croisée (5-Fold). |
+| **5–8**| Figures & Diagnostics | Génération et sauvegarde des graphiques d'évaluation (convergence des paramètres, distributions MAPE, résidus). |
+| **9–10**| Apprentissage par Clusters | Entraînement de jeux de paramètres spécifiques à chaque cluster d'événements. |
+| **11–17**| Extensions & Modélisation Avancée | Poids statiques $L_1$, dilatation $\lambda$, lissage par Spline, Q-Learning et surfaces Plotly 3D interactives. |
+| **A–E**| Annexes Théoriques | Implémentations d'extinction temporelle, drap variationnel, et décomposition hybride d'événements. |
